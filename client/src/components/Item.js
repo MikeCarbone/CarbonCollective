@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class Item extends Component {
   getDate(timeString) {
@@ -13,8 +13,10 @@ class Item extends Component {
         <div key={index} className="post">
           <h2 className="post__title">{post.title}</h2>
           <p className="post__desc">{post.description}</p>
-          <p className="post__date">Added on: {this.getDate(post.dateAdded)}</p>
-          <a className="post__link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
+          <div className="post__btm">
+            <p className="post__date">Added on: {this.getDate(post.dateAdded)}</p>
+            <a className="post__link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
+          </div>
         </div>
       );
     });

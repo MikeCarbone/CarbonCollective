@@ -18,6 +18,15 @@ const Link = new Schema({
   },
   description: {
     type: String
+  },
+  opinion: {
+    type: String
+  },
+  source: {
+    type: String
+  },
+  related: {
+    type: String
   }
 });
 

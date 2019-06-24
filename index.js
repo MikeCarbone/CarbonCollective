@@ -28,13 +28,16 @@ app.get('/links', (req, res) => {
 });
 
 app.post('/links', (req, res) => {
-  const { body: {title, url, tags, description} } = req;
+  const { body: {title, url, tags, description, opinion, source, related} } = req;
   
   Link.create({
     title,
     url,
     tags,
-    description
+    description,
+    opinion,
+    source,
+    related
   }).then(data => {
     res.status(200).send({
       "success": data

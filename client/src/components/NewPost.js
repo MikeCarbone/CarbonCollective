@@ -27,10 +27,17 @@ class NewPost extends Component {
 
   handleChange = (event) => {
     const property = event.target.id;
+    let dataObj = this.state.data;
+    let val;
 
     (async () => {
-      let dataObj = this.state.data;
-          dataObj[property] = event.target.value;
+      if (property === "tags") {
+        val = this.handleTags(event.target.value);
+      } else {
+        val = event.target.value;
+      }
+      
+      dataObj[property] = val;
       await this.setState({ data: dataObj });
     })();
   }
@@ -77,8 +84,12 @@ class NewPost extends Component {
         return reject('Please set a url');
       }
 
-      if ((!this.state.data.url.includes('http://')) && (!this.state.data.url.includes('https://')) && (!this.state.data.url.includes('www.')) ) {
-        return reject('Invalid URL! Make sure it includes http://, https://, or www.')
+      if ((!this.state.data.url.includes('http://')) && (!this.state.data.url.includes('https://'))) {
+        return reject('Invalid URL! Make sure it includes http://, https://, or www.');
+      }
+
+      if ((this.state.data.related !== undefined) && ((!this.state.data.related.includes('http://')) && (!this.state.data.related.includes('https://')))) {
+        return reject('Invalid URL! Make sure it includes http://, https://, or www.');
       }
       
       if (this.state.data.tags === null) {
@@ -93,18 +104,28 @@ class NewPost extends Component {
     });
   }
 
+  handleTags (str) {
+    return str.split(", ");
+  }
+
   render () {
     return(
       <>
         <Toast data={this.state.toast} />
         <form>
-          <div className="create">
-            <input className="input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
-            <input className="input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
-            <input className="input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
-            <label className="create__label" htmlFor="tags">separate these with a comma and space, e.g. "  logo, productivity, business  "</label>
-            <input className="input create__input" onChange={this.handleChange} type="text" id="description" placeholder="description"></input>
-            <button className="btn create__btn" onClick={this.sendNew}>Submit</button>
+          <div className="standard-wrapper">
+            <h1 className="generic__section-header">New Post</h1>
+            <div className="create">
+              <input className="input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
+              <label className="create__label" htmlFor="tags">Separate tags with a comma and space, e.g. "  logo, productivity, business  "</label>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="What do you like about this?"></input>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="source" placeholder="Where did you find this? (Word / Name)"></input>
+              <input className="input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
+              <button className="btn create__btn" onClick={this.sendNew}>Submit</button>
+            </div>
           </div>
         </form>
       </>

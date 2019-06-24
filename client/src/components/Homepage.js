@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Item from './Item';
 
 class Homepage extends Component {
