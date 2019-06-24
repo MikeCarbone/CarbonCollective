@@ -1,16 +1,4 @@
 import React, { Component } from 'react';
-
-const Toast = (props) => {
-  if (props.data.err) {
-    console.log(props.data.err);
-    return <p style={{color: "white", backgroundColor: "red"}}>Something didnt work correctly, error logged in console.</p> 
-  } else if (props.data.success) {
-    return <p style={{color: "white", backgroundColor: "green"}}>Link submitted successfully!</p>
-  } else {
-    return null;
-  }
-}
-
 class NewPost extends Component {
   state = {
     data: {
@@ -18,10 +6,6 @@ class NewPost extends Component {
       url: null,
       tags: [],
       description: null
-    },
-    toast: {
-      success: null,
-      err: null
     }
   }
 
@@ -36,21 +20,11 @@ class NewPost extends Component {
       } else {
         val = event.target.value;
       }
-      
+
       dataObj[property] = val;
       await this.setState({ data: dataObj });
+      console.log(this.state.data);
     })();
-  }
-
-  handleRes = (res) => {
-    let toastData = this.state.toast;
-    if (res.err) {
-      toastData.err = res.err;
-      this.setState({ toast: toastData });
-    } else {
-      toastData.success = res.res.success;
-      this.setState({ toast: toastData });
-    }
   }
 
   sendNew = (event) => {
@@ -66,8 +40,8 @@ class NewPost extends Component {
             body: JSON.stringify(this.state.data)
         })
         .then(response => response.json())
-        .then(res => this.handleRes({ 'success': true, res }))
-        .catch(err => this.handleRes({ 'success': false, err }));
+        .then(res => this.props.resHandler({ 'success': true, res }))
+        .catch(err => this.props.resHandler({ 'success': false, err }));
       } catch (err) {
         alert(err);
       }
@@ -111,7 +85,6 @@ class NewPost extends Component {
   render () {
     return(
       <>
-        <Toast data={this.state.toast} />
         <form>
           <div className="standard-wrapper">
             <h1 className="generic__section-header">New Post</h1>
