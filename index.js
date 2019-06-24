@@ -22,19 +22,19 @@ mongoose
 // });
 
 app.get('/links', (req, res) => {
-  console.log('here');
-  Link.find().then(links => {
+  Link.find().sort({dateAdded: -1}).then(links => {
     res.status(200).send(links);
   });
 });
 
 app.post('/links', (req, res) => {
-  const { body: {title, url, tags} } = req;
+  const { body: {title, url, tags, description} } = req;
   
   Link.create({
-    title: title,
-    url: url,
-    tags: tags
+    title,
+    url,
+    tags,
+    description
   }).then(data => {
     res.status(200).send({
       "success": data

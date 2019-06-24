@@ -16,7 +16,8 @@ class NewPost extends Component {
     data: {
       title: null,
       url: null,
-      tags: []
+      tags: [],
+      description: null
     },
     toast: {
       success: null,
@@ -75,9 +76,17 @@ class NewPost extends Component {
       if (this.state.data.url === null) {
         return reject('Please set a url');
       }
+
+      if ((!this.state.data.url.includes('http://')) && (!this.state.data.url.includes('https://')) && (!this.state.data.url.includes('www.')) ) {
+        return reject('Invalid URL! Make sure it includes http://, https://, or www.')
+      }
       
       if (this.state.data.tags === null) {
         return reject('Please set some tags');
+      }
+
+      if (this.state.data.description === null) {
+        return reject('Please enter a short description!');
       }
 
       resolve();
@@ -89,11 +98,14 @@ class NewPost extends Component {
       <>
         <Toast data={this.state.toast} />
         <form>
-          <input onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
-          <input onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
-          <p>separate these with a comma and space, e.g. "  logo, productivity, business  "</p>
-          <input onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
-          <button onClick={this.sendNew}>Submit</button>
+          <div className="create">
+            <input className="input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
+            <input className="input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
+            <input className="input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
+            <label className="create__label" htmlFor="tags">separate these with a comma and space, e.g. "  logo, productivity, business  "</label>
+            <input className="input create__input" onChange={this.handleChange} type="text" id="description" placeholder="description"></input>
+            <button className="btn create__btn" onClick={this.sendNew}>Submit</button>
+          </div>
         </form>
       </>
     );
