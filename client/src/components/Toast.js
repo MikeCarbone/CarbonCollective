@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Toast = (props) => {
-  if (props.data.err) {
-    console.log(props.data.err);
-    return <p style={{color: "white", backgroundColor: "red"}}>Something didnt work correctly, error logged in console.</p> 
-  } else if (props.data.success) {
-    return <p style={{color: "white", backgroundColor: "green"}}>Link submitted successfully!</p>
+class ToastEl extends Component {
+    constructor (msg, bem) {
+      super();
+
+      this.msg = msg;
+      this.bem = bem;
+    }
+
+    state = {
+      display: "block"
+    }
+
+    changeDisplay = (rule) => {
+      this.setState({
+        display: rule
+      });
+    }
+
+    render() {
+      return(
+        <div className={`toast toast--${this.bem}`} style={{display: this.state.display}}>
+          <p>
+            {this.msg}
+            <span onClick={() => this.changeDisplay("none") } className="toast__x">X</span>
+          </p>
+        </div>
+      );
+    }
+}
+
+const Toast = props => {
+  if (props.isErr) {
+    return new ToastEl("Sorry, something is shitting the bed", "error");
   } else {
-    return null;
+    return new ToastEl("Nice! Post submitted successfully", "success");
   }
 }
 

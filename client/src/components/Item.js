@@ -15,7 +15,8 @@ class Item extends Component {
           <p className="post__desc">{post.description}</p>
           <div className="post__btm">
             <p className="post__date">Added on: {this.getDate(post.dateAdded)}</p>
-            <a className="post__link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
+            <a className="generic__link post__in-link" href={`/cc/${post.slug}`}>Details</a>
+            <a className="generic__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
           </div>
         </div>
       );

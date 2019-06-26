@@ -7,8 +7,6 @@ const mongoKey = require('./keys.json').mongoURI;
 const port = process.env.PORT || 3555;
 const app = express();
 
-const Link = require('./models/Link');
-
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -17,32 +15,7 @@ mongoose
 	.then(() => console.log('MongoDB Connected...'))
   .catch((err) => console.log('MongoDB Connection Error: ', err));
 
-// app.get('/', (req, res) => {
-// 	res.sendFile(path.resolve(__dirname, 'client', 'public', 'index.html'));
-// });
 
-app.get('/links', (req, res) => {
-  Link.find().sort({dateAdded: -1}).then(links => {
-    res.status(200).send(links);
-  });
-});
-
-app.post('/links', (req, res) => {
-  const { body: {title, url, tags, description, opinion, source, related} } = req;
-  
-  Link.create({
-    title,
-    url,
-    tags,
-    description,
-    opinion,
-    source,
-    related
-  }).then(data => {
-    res.status(200).send({
-      "success": data
-    });
-  });
-});
+app.use('/links', require('./controllers/LinksController'));
 
 app.listen(port, () => console.log(`Mike's repo server runnning on port ${port}!`));

@@ -27,6 +27,10 @@ const Link = new Schema({
   },
   related: {
     type: String
+  },
+  slug: {
+    type: String,
+    unique: true
   }
 });
 

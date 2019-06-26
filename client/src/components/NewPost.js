@@ -40,8 +40,8 @@ class NewPost extends Component {
             body: JSON.stringify(this.state.data)
         })
         .then(response => response.json())
-        .then(res => this.props.resHandler({ 'success': true, res }))
-        .catch(err => this.props.resHandler({ 'success': false, err }));
+        .then(res => this.props.resHandler({ res }))
+        .catch(err => this.props.resHandler({ err }));
       } catch (err) {
         alert(err);
       }
@@ -86,18 +86,18 @@ class NewPost extends Component {
     return(
       <>
         <form>
-          <div className="standard-wrapper">
+          <div className="generic__standard-wrapper">
             <h1 className="generic__section-header">New Post</h1>
             <div className="create">
-              <input className="input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
               <label className="create__label" htmlFor="tags">Separate tags with a comma and space, e.g. "  logo, productivity, business  "</label>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="What do you like about this?"></input>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="source" placeholder="Where did you find this? (Word / Name)"></input>
-              <input className="input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
-              <button className="btn create__btn" onClick={this.sendNew}>Submit</button>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="What do you like about this?"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="Where did you find this? (Word / Name)"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
+              <button className="generic__btn create__btn" onClick={this.sendNew}>Submit</button>
             </div>
           </div>
         </form>
