@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { getDate } from '../generic/commonFunctions';
+import { getDocTitle } from '../generic/overallConfig';
 
 const Tags = props => {
   if (props.tagArr) {
@@ -29,9 +31,14 @@ class FullPost extends Component {
   componentWillMount () {
     fetch(`/links/${this.match.params.name}`)
       .then(res => {
-        return res.json();
+        if (res) {
+          return res.json();
+        } else {
+          return null;
+        }
       })
       .then(data => {
+        if (data === null) { return }
         this.setState({ posts: data[0] });
       });
   }
@@ -39,24 +46,35 @@ class FullPost extends Component {
   render () {
     if (this.state.posts) {
       const post = this.state.posts;
+
+      document.title = getDocTitle(post.title);
+
       console.log(post);
       return (
         <div className="generic__standard-wrapper full-post">
           <div className="full-post__top">
-            <div className="full-post__header-zone">
-              <h1 className="full-post__header">{post.title}</h1>
-              <Tags tagArr={post.tags} />
+            <div>
+              <div className="full-post__header-zone">
+                <h1 className="full-post__header">{post.title}</h1>
+                <Tags tagArr={post.tags} />
+              </div>
+              <p className="full-post__desc">{post.description}</p>
+              <div className="full-post__links">
+                <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW LINK</a>
+                <a className="generic__text-link full-post__source" href={post.related}>View source</a>
+              </div>
             </div>
-            <p className="full-post__desc">{post.description}</p>
+            <div className="full-post__img-cont">
+              <img alt="" className="full-post__img" src="https://via.placeholder.com/800x500"/>
+            </div>
           </div>
           <div className="generic__hr"></div>
-          <div className="full-post__links">
-            <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW LINK</a>
-          </div>
           <div className="full-post__content">
-            <p className="full-post__source">Originally seen on: <a className="generic__text-link" href={post.related}>{post.source}</a></p>
-            <h2>The Take:</h2>
-            <p className="full-post__opinion">{post.opinion}</p>
+            <p className="full-post__date">Added on {getDate(post.dateAdded)}</p>
+            <div className="full-post__take">
+              <h2 className="full-post__take-header">Hot Take</h2>
+              <p className="full-post__take-text">{post.opinion}</p>
+            </div>
           </div>
         </div>
       );
