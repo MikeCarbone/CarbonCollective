@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NewPost from './NewPost';
-import PostEditor from './ItemEdit';
 import Toast from './Toast';
 class Admin extends Component {
   state= {
@@ -27,7 +26,6 @@ class Admin extends Component {
       <>
         {this.state.toast}
         <NewPost resHandler={this.handleRes} />
-        <PostEditor />
       </>
     );
   }

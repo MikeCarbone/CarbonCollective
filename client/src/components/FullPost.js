@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getDate } from '../generic/commonFunctions';
 import { getDocTitle } from '../generic/overallConfig';
+import Item from './Item';
 
 const Tags = props => {
   if (props.tagArr) {
@@ -65,7 +66,7 @@ class FullPost extends Component {
               </div>
             </div>
             <div className="full-post__img-cont">
-              <img alt="" className="full-post__img" src="https://via.placeholder.com/800x500"/>
+              <img alt="" className="full-post__img" src={post.imageUrl}/>
             </div>
           </div>
           <div className="generic__hr"></div>

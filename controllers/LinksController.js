@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const ImageService = require('../services/ImageService');
 
 const Link = require('../models/Link');
 const slugify = require('slugify');
@@ -13,25 +14,32 @@ router.get('/', (req, res) => {
 
 // Create new
 router.post('/', (req, res) => {
-  const { body: {title, url, tags, description, opinion, source, related} } = req;
+  const { title, url, tags, description, opinion, source, related } = req.body;
   const slug = slugify(title.toLowerCase());
 
-  Link.create({
-    title,
-    url,
-    tags,
-    description,
-    opinion,
-    source,
-    related,
-    slug
-  }).then(data => {
-    res.status(200).send({
-      "success": data
+  (async () => {
+    ImageService.sendUploadToGCS(req).then(imageUrl => {
+      Link.create({
+        title,
+        url,
+        tags,
+        description,
+        opinion,
+        source,
+        related,
+        slug,
+        imageUrl
+      }).then(data => {
+        console.log(data);
+        return res.status(200).send({
+          "success": data
+        });
+      }).catch(err => {
+        console.log(err);
+        return res.status(500).send({ "error": err });
+      });
     });
-  }).catch(err => {
-    res.status(500).send({ "error": err });
-  });
+  })();
 });
 
 // Fetch one

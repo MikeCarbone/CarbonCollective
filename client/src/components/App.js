@@ -11,7 +11,7 @@ const App = () => (
 
     <Switch>
       <Route path="/" exact component={Homepage}/>
-      <Route path="/new" component={Admin} />
+      <Route path="/admin" component={Admin} />
       <Route path="/cc/:name" component={FullPost} />
     </Switch>
   </>

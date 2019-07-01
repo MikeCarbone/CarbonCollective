@@ -7,7 +7,7 @@ class Item extends Component {
       return(
         <div key={index} className="post">
           <div className="post__img-cont">
-            <img alt="" className="post__img" src="https://via.placeholder.com/800x500"/>
+            <img alt="" className="post__img" src={post.imageUrl}/>
           </div>
           <div>
             <h2 className="post__title">{post.title}</h2>

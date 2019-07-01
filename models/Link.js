@@ -31,6 +31,9 @@ const Link = new Schema({
   slug: {
     type: String,
     unique: true
+  },
+  imageUrl: {
+    type: String
   }
 });
 
