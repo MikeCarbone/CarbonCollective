@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const verify = require('../services/Auth');
 const ImageService = require('../services/ImageService');
+const jwt = require('jsonwebtoken');
 
 const Link = require('../models/Link');
 const slugify = require('slugify');
 
+const jwtKey = require('../private/keys.json');
 // Fetch All
 router.get('/', (req, res) => {
   Link.find().sort({dateAdded: -1}).limit(25).then(links => {
@@ -13,16 +16,25 @@ router.get('/', (req, res) => {
 });
 
 // Create new
-router.post('/', (req, res) => {
+router.post('/', verify, (req, res) => {
+  jwt.verify(req.token, 'secretkey', (err, authData) => {
+    if (err) {
+      return res.status(403).send({"error": "User not authorized."});
+    }
+  });
+
   const { title, url, tags, description, opinion, source, related } = req.body;
   const slug = slugify(title.toLowerCase());
+  const splitTags = () => {
+    return tags.split(',');
+  }
 
   (async () => {
     ImageService.sendUploadToGCS(req).then(imageUrl => {
       Link.create({
         title,
         url,
-        tags,
+        tags: splitTags(),
         description,
         opinion,
         source,
@@ -30,7 +42,6 @@ router.post('/', (req, res) => {
         slug,
         imageUrl
       }).then(data => {
-        console.log(data);
         return res.status(200).send({
           "success": data
         });

@@ -23,7 +23,7 @@ class ToastEl extends Component {
         <div className={`toast toast--${this.bem}`} style={{display: this.state.display}}>
           <p>
             {this.msg}
-            <span onClick={() => this.changeDisplay("none") } className="toast__x">X</span>
+            <span onClick={() => this.changeDisplay("none") } className={`toast__x toast__x--${this.bem}`}>X</span>
           </p>
         </div>
       );
@@ -31,6 +31,12 @@ class ToastEl extends Component {
 }
 
 const Toast = props => {
+  if (props.msg && props.isErr) {
+    return new ToastEl(props.msg, "error");
+  } else if (props.msg && !props.isErr) {
+    return new ToastEl(props.msg, "success");
+  }
+
   if (props.isErr) {
     return new ToastEl("Sorry, something is shitting the bed", "error");
   } else {

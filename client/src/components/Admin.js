@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import NewPost from './NewPost';
 import Toast from './Toast';
+import { getDocTitle } from '../generic/overallConfig';
+import { LogOut } from './Auth';
 class Admin extends Component {
   state= {
     toast: null
@@ -22,10 +24,13 @@ class Admin extends Component {
   }
 
   render() {
+    document.title = getDocTitle('Admin');
+
     return (
       <>
         {this.state.toast}
         <NewPost resHandler={this.handleRes} />
+        <LogOut />
       </>
     );
   }

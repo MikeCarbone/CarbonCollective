@@ -33,7 +33,6 @@ class NewPost extends Component {
     const fileInput = document.getElementById('image');
     const file = fileInput.files[0];
     const formData = new FormData();
-    console.log(fileInput.files);
 
     formData.set(file.name, file, file.name);
     Object.keys(this.state.data).forEach(val => {
@@ -47,10 +46,11 @@ class NewPost extends Component {
     (async () => {
       try {
         await this.validate();
-        fetch('/links', {
+        fetch('/api/links', {
             method: 'POST',
             headers: {
-              'enctype': 'multipart/form-data'
+              'enctype': 'multipart/form-data',
+              'authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: formData
         })
@@ -113,7 +113,7 @@ class NewPost extends Component {
               <input className="generic__input create__input" onChange={this.handleChange} type="file" name="file" id="image" accept="image/*" placeholder="Image"></input>
               <input className="generic__input create__input" onChange={this.handleChange} hidden type="text" name="imageUrl" id="imageUrl"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
-              <label className="create__label" htmlFor="tags">Separate tags with a comma and space, e.g. "  logo, productivity, business  "</label>
+              <label className="create__label" htmlFor="tags">Separate tags with a comma, e.g. "  logo,productivity,business  "</label>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="HOT TAKE: What do you like about this?"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="SOURCE: Where did you find this? (Word / Name)"></input>

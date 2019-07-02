@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { getDate } from '../generic/commonFunctions';
 import { getDocTitle } from '../generic/overallConfig';
-import Item from './Item';
 
 const Tags = props => {
   if (props.tagArr) {
@@ -30,7 +29,7 @@ class FullPost extends Component {
   }
 
   componentWillMount () {
-    fetch(`/links/${this.match.params.name}`)
+    fetch(`/api/links/${this.match.params.name}`)
       .then(res => {
         if (res) {
           return res.json();
@@ -54,15 +53,17 @@ class FullPost extends Component {
       return (
         <div className="generic__standard-wrapper full-post">
           <div className="full-post__top">
-            <div>
+            <div className="full-post__importants">
               <div className="full-post__header-zone">
                 <h1 className="full-post__header">{post.title}</h1>
-                <Tags tagArr={post.tags} />
               </div>
               <p className="full-post__desc">{post.description}</p>
               <div className="full-post__links">
-                <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW LINK</a>
-                <a className="generic__text-link full-post__source" href={post.related}>View source</a>
+                <div>
+                  <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW LINK</a>
+                  <a className="generic__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>
+                </div>
+                <Tags tagArr={post.tags} />
               </div>
             </div>
             <div className="full-post__img-cont">

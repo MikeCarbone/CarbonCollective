@@ -47,6 +47,13 @@
   font-family: var(--font);
   font-size: var(--med);
   padding: 15px;
+  text-transform: uppercase;
+  transition: .1s all ease-in;
+}
+
+.generic__btn:hover {
+  background-color: var(--faded-gold);
+  transition: .1s all ease-in;
 }
 
 .generic__link {
@@ -140,6 +147,7 @@
 }
 
 .post__img {
+  border: 1px solid var(--faded-gold);
   height: 100%;
   object-fit: cover;
   object-position: center;
@@ -224,10 +232,17 @@
 }
 
 .toast__x {
-  color: gray;
   cursor: pointer;
   font-size: var(--med);
   margin: 0 15px;
+}
+
+.toast__x--error {
+  color: #b71b00; 
+}
+
+.toast__x--success {
+  color: #009322; 
 }
 
 .toast__x:hover {
@@ -247,15 +262,15 @@
 }
 
 .full-post__header {
-  display: inline-block;
+  display: block;
   font-family: var(--font);
   font-size: var(--extra-big);
-  margin: 10px 0 20px -2px;
+  margin: 10px 0 20px -6px;
   text-transform: uppercase;
 }
 
 .full-post__tag-zone {
-  margin: 0 0 0 50px;
+  margin: 0;
 }
 
 .full-post__top {
@@ -266,6 +281,7 @@
 .full-post__links {
   align-items: center;
   display: flex;
+  justify-content: space-between;
   margin: 50px 0 15px 0;
 }
 
@@ -288,8 +304,12 @@
   text-transform: uppercase;
 }
 
+.full-post__importants {
+  margin: 0 50px 0 0;
+  width: 100%;
+}
+
 .full-post__source {
-  display: flex;
   flex-direction: column;
   font-weight: lighter;
   margin: 0 0 0 50px;
@@ -316,9 +336,12 @@
 }
 
 .full-post__img {
+  border-top: 1px solid var(--faded-gold);
   height: 100%;
+  max-height: 250px;
   object-fit: cover;
   object-position: center;
+  padding: 10px 0 0 0;
   width: 350px;
 }
 
@@ -340,4 +363,37 @@
   font-family: var(--font);
   line-height: 1.5;
   margin: 15px 0 0 20px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin: 100px auto 0 auto;
+  max-width: 600px;
+  width: 40%;
+}
+
+.login__input {
+  font-weight: lighter;
+  text-align: center;
+}
+
+.login__text {
+  color: var(--dark);
+  font-size: var(--med);
+  font-family: var(--font);
+  margin: 0 0 50px 0;
+  text-align: center;
+}
+
+.login__text--sub {
+  color: var(--faded);
+  font-size: var(--small);
+  font-weight: lighter;
+  margin: 150px auto 0 auto;
+  padding: 0 0 100px 0;
+}
+
+.login__btn {
+  margin: 15px 0 0 0;
 }

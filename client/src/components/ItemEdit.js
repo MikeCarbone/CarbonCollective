@@ -6,7 +6,7 @@ class Editor extends Component {
   }
 
   componentWillMount () {
-    fetch('/links')
+    fetch('/api/links')
       .then(res => {
         return res.json();
       })
