@@ -106,7 +106,7 @@ class LogIn extends React.Component {
       <>
         {this.state.toast}
         <div className="login">
-          <p className="login__text">Hey man! Let's see if you have access to this.</p>
+          <p className="login__text">Welcome back, captain.</p>
           <input id="username" className="generic__input login__input" type="password" name="username" placeholder="Username" onChange={this.handleChange}/>
           <input id="password" className="generic__input login__input" type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           <button className="generic__btn login__btn" onClick={this.check}>Go</button>
