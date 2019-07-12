@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBox';
 
 const Header = () => {
-  return(
+  return (
     <nav className="nav">
       <Link to="/" className="generic__invisible-link"><h1 className="nav__title">Carbon Collective</h1></Link>
       <div className="nav__right">

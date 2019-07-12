@@ -15,8 +15,10 @@ class NewPost extends Component {
     let val;
 
     (async () => {
-      if (property === "tags") {
+      if (property === 'tags') {
         val = this.handleTags(event.target.value);
+      } else if (property === 'title') {
+        val = event.target.value.toLowerCase();
       } else {
         val = event.target.value;
       }

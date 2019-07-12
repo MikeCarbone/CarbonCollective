@@ -21,26 +21,36 @@ class FullPost extends Component {
   constructor({ match }) {
     super();
 
-    this.match = match;
+    this.state = {
+      posts: null,
+      match
+    }
   }
 
-  state = {
-    posts: null
+  componentWillReceiveProps({ match }) {
+    (async () => {
+      await this.setState({ match });
+      this.fetchPost();
+    })();
   }
 
   componentWillMount () {
-    fetch(`/api/links/${this.match.params.name}`)
-      .then(res => {
-        if (res) {
-          return res.json();
-        } else {
-          return null;
-        }
-      })
-      .then(data => {
-        if (data === null) { return }
-        this.setState({ posts: data[0] });
-      });
+    this.fetchPost();
+  }
+
+  fetchPost = () => {
+    fetch(`/api/links/${this.state.match.params.name}`)
+    .then(res => {
+      if (res) {
+        return res.json();
+      } else {
+        return null;
+      }
+    })
+    .then(data => {
+      if (data === null) { return }
+      this.setState({ posts: data[0] });
+    });
   }
 
   render () {
@@ -49,9 +59,9 @@ class FullPost extends Component {
 
       document.title = getDocTitle(post.title);
 
-      console.log(post);
+      console.log('post: ', post);
       return (
-        <div className="generic__standard-wrapper full-post">
+        <main className="generic__standard-wrapper full-post">
           <div className="full-post__top">
             <div className="full-post__importants">
               <div className="full-post__header-zone">
@@ -78,7 +88,7 @@ class FullPost extends Component {
               <p className="full-post__take-text">{post.opinion}</p>
             </div>
           </div>
-        </div>
+        </main>
       );
     } else {
       return null;

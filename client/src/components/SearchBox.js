@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
+const BACKSPACE_KEYCODE = 8;
 class SearchBox extends Component{
   state = {
     term: null,
-    results: []
+    searchResults: []
   }
 
   handleChange = (e) => {
+    this.toggleResults({forceOpen: true});
     // Input change, query for results
+    if (e.keycode !== BACKSPACE_KEYCODE) {
+      (async () => {
+        await this.setState({term: e.target.value});
 
-    (async () => {
-      await this.setState({term: e.target.value});
-      this.search();
-      console.log(this.state.term);
-    })();
+        if (this.state.term !== '') {
+          this.search();
+        } else {
+          this.toggleResults({forceClose: true});
+        }
+      })();
+    }
   }
 
   search = () => {
@@ -24,22 +32,63 @@ class SearchBox extends Component{
       })
       .then(response => response.json())
       .then(res => {
-        console.log(res);
+        this.setState({
+          searchResults: res.data
+        });
       })
       .catch(err => console.log(err));
   }
 
+  displayResults = (results) => {
+    this.searchResults.style.display = "block";
+  }
+
+  toggleResults = opts => {
+    if (opts.forceClose === true) {
+      return this.searchResults.style.display = 'none';
+    }
+    
+    if (opts.forceOpen === true) {
+      return this.searchResults.style.display = 'block';
+    }
+
+    if (this.searchResults.style.display !== 'block') {
+      this.searchResults.style.display = 'block';
+    } else {
+      this.searchResults.style.display = 'none';
+    }
+  }
+
+  checkClickForInputFocus = () => {
+  }
+  
+  componentDidMount = () => {
+    this.searchResults = document.getElementsByClassName('searchbar__results')[0];
+    // document.getElementsByTagName('main')[0].addEventListener('click', () => {
+    //   this.toggleResults({ forceClose: true })
+    // });
+  }
+
   render () {
+    if (this.state.searchResults.length !== 0) {
+      var searchResults = this.state.searchResults.map((link, index) => {
+        return (
+          <Link onClick={() => this.toggleResults({ forceClose: true })} key={index} className="searchbar__result" to={`/cc/${link.slug}`}>
+            <p className="searchbar__result-text">{link.title.toUpperCase()}</p>
+            <img className="searchbar__result-img" alt="" src={link.imageUrl} />
+          </Link>
+        );
+      });
+    }
+
     return (
       <div id="SearchBox" className="searchbar">
         <div className="searchbar__container">
-          <input className="searchbar__input" id="searchright" type="search" name="q" placeholder="Yes Captain?" />
-          <label className="searchbar__icon" for="searchright"><span className="searchbar__mglass">&#9906;</span></label>
+          <input autoComplete="off" onFocus={() => this.toggleResults({forceOpen: true})} onChange={this.handleChange} className="searchbar__input" id="searchright" type="search" name="q" placeholder="Yes Captain?" />
+          <label className="searchbar__icon" htmlFor="searchright"><span className="searchbar__mglass">&#9906;</span></label>
         </div>
         <div className="searchbar__results">
-          <div className="searchbar__result">
-            <h3>Result Title</h3>
-          </div>
+          { searchResults }
         </div>
       </div>
     )

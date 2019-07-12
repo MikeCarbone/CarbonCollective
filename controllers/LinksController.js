@@ -63,7 +63,7 @@ router.get('/:slug', (req, res) => {
 router.post('/search', (req, res) => {
   const { term } = req.body;
   console.log(term);
-  Link.find({$or: [{ title: term  }, {description: term}, {url: term}, {source: term}, {tags: term}]})
+  Link.find({ title: { $regex: '.*' + term + '.*' }}).limit(5)
   .then(data => {
     console.log(data);
     return res.status(200).send({data});

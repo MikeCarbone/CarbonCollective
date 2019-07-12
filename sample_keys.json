@@ -1,0 +1,23 @@
+{
+  "mongoURI": "mongodb://user:password@x.mlab.com:x/project",
+  "jwtKey": "random_string123",
+  "adminUser": "memorable_username",
+  "adminPass": "memorable_password",
+  "gCLoudUser": "email",
+  "gCloudProject": "carboncollective",
+
+  "_comment for below_":
+  "Generated from gcloud dashboard -> API -> Credentials -> Manage Service Accounts -> Create Key",
+  "GOOGLE_APPLICATION_CREDENTIALS": {
+    "type": "service_account",
+    "project_id": "probably carboncollective",
+    "private_key_id": "random_string",
+    "private_key": "long_hash",
+    "client_email": "x",
+    "client_id": "123",
+    "auth_uri": "url",
+    "token_uri": "url",
+    "auth_provider_x509_cert_url": "url",
+    "client_x509_cert_url": "url"
+  }
+}
