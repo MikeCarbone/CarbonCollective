@@ -1,6 +1,10 @@
 const CLOUD_BUCKET = 'carboncollective';
+const keys = require('../keys.js');
 const { Storage } = require('@google-cloud/storage');
-const storage = new Storage({ projectId: 'carboncollective' });
+const storage = new Storage({ 
+  projectId: 'carboncollective',
+  credentials: keys.GOOGLE_APPLICATION_CREDENTIALS
+});
 const bucket = storage.bucket(CLOUD_BUCKET);
 
 // Returns the public, anonymously accessable URL to a given Cloud Storage
