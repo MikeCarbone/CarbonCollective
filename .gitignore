@@ -3,3 +3,4 @@ keys.json
 /client/node_modules
 /private
 package-lock.json
+.env

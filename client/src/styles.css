@@ -297,7 +297,7 @@
 .full-post__desc {
   color: var(--black);
   font-family: var(--font);
-  font-size: 1.5rem;
+  font-size: var(--med);
   font-weight: lighter;
 }
 
@@ -534,15 +534,23 @@
 
 @media screen and (max-width: 800px) {
   :root {
-    --extra-big: 3.5rem;
+    --extra-big: 2.5rem;
     --big: 1.4rem;
-    --med: 1rem;
-    --small: .5rem;
+    --med: 1.05rem;
+    --small: .7rem;
+  }
+
+  .generic__standard-wrapper {
+    padding: 10px 20px;
   }
 
   .nav {
     flex-direction: column;
     padding: 10px;
+  }
+
+  .nav__right {
+    margin-top: -15px;
   }
 
   .posts-cont {
@@ -577,5 +585,42 @@
 
   .post__date-break {
     display: block;
+  }
+
+  .full-post__top {
+    flex-direction: column;
+  }
+
+  .full-post__importants {
+    margin: 0;
+  }
+
+  .full-post__header {
+    font-size: var(--extra-big);
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .full-post__links {
+    align-items: unset;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  .full-post__tag-zone {
+    margin: 15px 0;
+  }
+
+  .full-post__img {
+    width: 100%;
+  }
+
+  .login {
+    margin: 15px auto;
+    width: 80%;
+  }
+
+  .login__text {
+    margin-top: 50px;
   }
 }

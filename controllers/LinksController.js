@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken');
 const Link = require('../models/Link');
 const slugify = require('slugify');
 
-const jwtKey = require('../private/keys.json');
 // Fetch All
 router.get('/', (req, res) => {
   Link.find().sort({dateAdded: -1}).limit(25).then(links => {

@@ -110,7 +110,7 @@ class LogIn extends React.Component {
           <input id="username" className="generic__input login__input" type="password" name="username" placeholder="Username" onChange={this.handleChange}/>
           <input id="password" className="generic__input login__input" type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           <button className="generic__btn login__btn" onClick={this.check}>Go</button>
-          <p className="login__text login__text--sub">Not an admin? Whatcha doing here!? Let's talk on Twitter <a className="generic__text-link" href="https://twitter.com/carbnology" target="_blank" rel="noreferrer noopener">@carbonology_</a> and see what's up.</p>
+          <p className="login__text login__text--sub">Not an admin? Whatcha doing here!? Let's talk on Twitter <a className="generic__text-link" href="https://twitter.com/carbnology" target="_blank" rel="noreferrer noopener">@carbnology</a> and see what's up.</p>
         </div>
       </>
     )

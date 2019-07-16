@@ -84,7 +84,7 @@ class FullPost extends Component {
           <div className="full-post__content">
             <p className="full-post__date">Added on {getDate(post.dateAdded)}</p>
             <div className="full-post__take">
-              <h2 className="full-post__take-header">Hot Take</h2>
+              <h2 className="full-post__take-header">Justification</h2>
               <p className="full-post__take-text">{post.opinion}</p>
             </div>
           </div>
