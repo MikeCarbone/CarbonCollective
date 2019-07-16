@@ -9,11 +9,11 @@ class Item extends Component {
           <div className="post__img-cont">
             <img alt="" className="post__img" src={post.imageUrl}/>
           </div>
-          <div>
+          <div className="post__content-cont">
             <h2 className="post__title">{post.title}</h2>
             <p className="post__desc">{post.description}</p>
             <div className="post__btm">
-              <p className="post__date">Added on: {getDate(post.dateAdded)}</p>
+              <p className="post__date">Added on:<br className="post__date-break" />{getDate(post.dateAdded)}</p>
               <a className="generic__link post__in-link" href={`/cc/${post.slug}`}>Details</a>
               <a className="generic__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
             </div>

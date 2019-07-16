@@ -62,14 +62,13 @@ router.get('/:slug', (req, res) => {
 
 router.post('/search', (req, res) => {
   const { term } = req.body;
-  console.log(term);
+
   Link.find({ title: { $regex: '.*' + term + '.*' }}).limit(5)
   .then(data => {
-    console.log(data);
     return res.status(200).send({data});
   })
   .catch(err => {
-    return res.status(500).send({"error": "Search error"})
+    return res.status(500).send({"error": err})
   });
 });
 

@@ -1,5 +1,5 @@
 const specs = {
-  title: "Carbon Collection",
+  title: "Carbon Collective",
   creator: "Mike Carbone"
 }
 

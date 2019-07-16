@@ -22,7 +22,7 @@ class Homepage extends Component {
     document.title = getDocTitle('Home');
 
     return (
-      <main className="posts-cont">
+      <main>
         <section className="posts-cont">
           <Item posts={this.state.posts} />
         </section>

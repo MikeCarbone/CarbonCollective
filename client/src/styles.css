@@ -154,6 +154,10 @@
   width: 150px;
 }
 
+.post__date-break {
+  display: none;
+}
+
 .create {
   display: flex;
   flex-direction: column;
@@ -526,4 +530,52 @@
 
 .searchbar__expandright:focus {
 	padding: 0 0 0 16px;
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    --extra-big: 3.5rem;
+    --big: 1.4rem;
+    --med: 1rem;
+    --small: .5rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .posts-cont {
+    padding: 10px 0;
+  }
+
+  .post {
+    flex-direction: column;
+    padding: 25px 15px;
+  }
+  
+  .post__title {
+    margin-bottom: 5px; 
+  }
+
+  .post__desc {
+    margin-bottom: 10px;
+  }
+
+  .post__content-cont {
+    margin: 20px 0 0 0;
+  }
+
+  .post__img-cont {
+    margin: 10px 10px 0 0;
+  }
+
+  .post__img {
+    max-height: 100px;
+    width: 50%;
+  }
+
+  .post__date-break {
+    display: block;
+  }
 }
