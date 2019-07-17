@@ -1,6 +1,6 @@
 # CarbonCollection
 Custom repository to save the best links on the internet
-[screenshot](https://ibb.co/2Mnk10b)
+![screenshot](screenshot.png)
 
 ### Development
 - This app uses Node Express, React, and MongoDB
