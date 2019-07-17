@@ -14,7 +14,7 @@ class Item extends Component {
             <p className="post__desc">{post.description}</p>
             <div className="post__btm">
               <div>
-                <p className="post__date">Added on:<br className="post__date-break" />{getDate(post.dateAdded)}</p>
+                <p className="post__date">Added on: <br className="post__date-break" />{getDate(post.dateAdded)}</p>
               </div>
               <div>
                 <a className="generic__link post__in-link" href={`/cc/${post.slug}`}>Details</a>

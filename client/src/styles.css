@@ -590,7 +590,6 @@
     font-size: var(--extra-big);
     margin-bottom: 5px; 
     text-align: center;
-    word-break: break-all;
   }
 
   .post__desc {
@@ -634,6 +633,7 @@
   .full-post__header {
     font-size: var(--extra-big);
     margin: 0 auto 10px auto;
+    text-align: center;
   }
 
   .full-post__desc {
@@ -653,11 +653,15 @@
   }
 
   .full-post__tag-zone {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 50px auto 15px auto;
   }
 
   .full-post__tag {
     font-size: var(--tiny);
+    margin-top: 10px;
   }
 
   .full-post__img {
