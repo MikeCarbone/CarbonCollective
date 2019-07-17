@@ -69,8 +69,8 @@ class FullPost extends Component {
               </div>
               <p className="full-post__desc">{post.description}</p>
               <div className="full-post__links">
-                <div>
-                  <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW LINK</a>
+                <div className="full-post__outlinks">
+                  <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW CONTENT</a>
                   <a className="generic__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>
                 </div>
                 <Tags tagArr={post.tags} />
