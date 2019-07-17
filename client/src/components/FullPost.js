@@ -59,7 +59,6 @@ class FullPost extends Component {
 
       document.title = getDocTitle(post.title);
 
-      console.log('post: ', post);
       return (
         <main className="generic__standard-wrapper full-post">
           <div className="full-post__top">
