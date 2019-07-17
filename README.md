@@ -1,4 +1,4 @@
-# CarbonCollection
+# CarbonCollective
 Custom repository to save the best links on the internet
 ![screenshot](screenshot.png)
 
