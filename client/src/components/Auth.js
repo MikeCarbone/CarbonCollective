@@ -107,7 +107,7 @@ class LogIn extends React.Component {
         {this.state.toast}
         <div className="login">
           <p className="login__text">Welcome back, captain.</p>
-          <input id="username" className="generic__input login__input" type="password" name="username" placeholder="Username" onChange={this.handleChange}/>
+          <input id="username" className="generic__input login__input" type="text" name="username" placeholder="Username" onChange={this.handleChange}/>
           <input id="password" className="generic__input login__input" type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
           <button className="generic__btn login__btn" onClick={this.check}>Go</button>
           <p className="login__text login__text--sub">Not an admin? Whatcha doing here!? Let's talk on Twitter <a className="generic__text-link" href="https://twitter.com/carbnology" target="_blank" rel="noreferrer noopener">@carbnology</a> and see what's up.</p>
