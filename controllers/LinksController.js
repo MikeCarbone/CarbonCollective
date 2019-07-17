@@ -3,6 +3,7 @@ const router = express.Router();
 const verify = require('../services/Auth');
 const ImageService = require('../services/ImageService');
 const jwt = require('jsonwebtoken');
+const keys = require('../keys');
 
 const Link = require('../models/Link');
 const slugify = require('slugify');
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 
 // Create new
 router.post('/', verify, (req, res) => {
-  jwt.verify(req.token, 'secretkey', (err, authData) => {
+  jwt.verify(req.token, keys.jwtKey, (err, authData) => {
     if (err) {
       return res.status(403).send({"error": "User not authorized."});
     }
@@ -45,7 +46,6 @@ router.post('/', verify, (req, res) => {
           "success": data
         });
       }).catch(err => {
-        console.log(err);
         return res.status(500).send({ "error": err });
       });
     });

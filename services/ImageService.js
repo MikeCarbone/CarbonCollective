@@ -1,9 +1,11 @@
 const CLOUD_BUCKET = 'carboncollective';
 const keys = require('../keys.js');
 const { Storage } = require('@google-cloud/storage');
+const creds = keys.GOOGLE_APPLICATION_CREDENTIALS;
+      creds.private_key = creds.private_key.replace(/\\n/g, '\n');
 const storage = new Storage({ 
   projectId: 'carboncollective',
-  credentials: keys.GOOGLE_APPLICATION_CREDENTIALS
+  credentials: creds
 });
 const bucket = storage.bucket(CLOUD_BUCKET);
 

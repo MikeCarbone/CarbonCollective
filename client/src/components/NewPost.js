@@ -25,7 +25,6 @@ class NewPost extends Component {
 
       dataObj[property] = val;
       await this.setState({ data: dataObj });
-      console.log(this.state.data);
     })();
   }
 
@@ -40,10 +39,6 @@ class NewPost extends Component {
     Object.keys(this.state.data).forEach(val => {
       formData.set(val, this.state.data[val]);
     });
-
-    for (let [key, value] of formData.entries()) { 
-      console.log(key, value);
-    }
    
     (async () => {
       try {
@@ -59,7 +54,6 @@ class NewPost extends Component {
         .then(response => response.json())
         .then(res => {
           this.props.resHandler({ res });
-          console.log(res);
         })
         .catch(err => this.props.resHandler({ err }));
       } catch (err) {
