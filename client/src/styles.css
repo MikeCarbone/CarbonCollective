@@ -320,6 +320,7 @@
 
 .full-post__source {
   flex-direction: column;
+  font-size: var(--small);
   font-weight: lighter;
   margin: 0 0 0 50px;
   text-align: center;
@@ -534,10 +535,10 @@
 
 @media screen and (max-width: 800px) {
   :root {
-    --extra-big: 2.5rem;
+    --extra-big: 1.9rem;
     --big: 1.4rem;
     --med: 1.05rem;
-    --small: .7rem;
+    --small: .9rem;
   }
 
   .generic__standard-wrapper {
@@ -550,7 +551,12 @@
   }
 
   .nav__right {
+    border-bottom: 1px solid var(--gold);
     margin-top: -15px;
+  }
+
+  .nav__link:hover {
+    all: unset;
   }
 
   .posts-cont {
@@ -564,10 +570,13 @@
   
   .post__title {
     margin-bottom: 5px; 
+    text-align: center;
+    word-break: break-all;
   }
 
   .post__desc {
     margin-bottom: 10px;
+    text-align: center;
   }
 
   .post__content-cont {
@@ -575,19 +584,27 @@
   }
 
   .post__img-cont {
-    margin: 10px 10px 0 0;
+    margin: 10px auto;
   }
 
   .post__img {
     max-height: 100px;
-    width: 50%;
   }
 
   .post__date-break {
-    display: block;
+    display: none;
+  }
+
+  .post__date {
+    margin: 15px 0;
+  }
+
+  .post__btm {
+    flex-direction: column;
   }
 
   .full-post__top {
+    margin: 15px 0;
     flex-direction: column;
   }
 
@@ -601,14 +618,18 @@
     margin-bottom: 10px;
   }
 
+  .full-post__desc {
+    margin: 5px 0 15px 0;
+  }
+
   .full-post__links {
     align-items: unset;
     flex-direction: column;
-    margin: 15px 0;
+    margin: 30px 0;
   }
 
   .full-post__tag-zone {
-    margin: 15px 0;
+    margin: 30px 0 15px 0;
   }
 
   .full-post__img {
