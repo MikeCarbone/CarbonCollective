@@ -34,6 +34,9 @@ const Link = new Schema({
   },
   imageUrl: {
     type: String
+  },
+  isPrivate: {
+    type: Boolean
   }
 });
 

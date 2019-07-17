@@ -23,7 +23,7 @@ router.post('/', verify, (req, res) => {
     }
   });
 
-  const { title, url, tags, description, opinion, source, related } = req.body;
+  const { title, url, tags, description, opinion, source, related, isPrivate } = req.body;
   const slug = slugify(title.toLowerCase());
   const splitTags = () => {
     return tags.split(',');
@@ -40,7 +40,8 @@ router.post('/', verify, (req, res) => {
         source,
         related,
         slug,
-        imageUrl
+        imageUrl,
+        isPrivate
       }).then(data => {
         return res.status(200).send({
           "success": data

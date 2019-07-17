@@ -5,7 +5,8 @@ class NewPost extends Component {
       title: null,
       url: null,
       tags: [],
-      description: null
+      description: null,
+      isPrivate: false
     }
   }
 
@@ -19,12 +20,15 @@ class NewPost extends Component {
         val = this.handleTags(event.target.value);
       } else if (property === 'title') {
         val = event.target.value.toLowerCase();
+      } else if (property === 'isPrivate'){
+        val = event.target.checked
       } else {
         val = event.target.value;
       }
 
       dataObj[property] = val;
       await this.setState({ data: dataObj });
+      console.log(this.state.data);
     })();
   }
 
@@ -114,6 +118,8 @@ class NewPost extends Component {
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="HOT TAKE: What do you like about this?"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="SOURCE: Where did you find this? (Word / Name)"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
+              <input className="generic__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>
+              <label className="create__label create__label--viz" htmlFor="isPrivate">Is private?</label>
               <button className="generic__btn create__btn" onClick={this.sendNew}>Submit</button>
             </div>
           </div>
