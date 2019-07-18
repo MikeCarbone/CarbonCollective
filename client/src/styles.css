@@ -354,6 +354,7 @@
 }
 
 .full-post__img {
+  background-color: black;
   border-top: 1px solid var(--faded-gold);
   height: 100%;
   max-height: 250px;
