@@ -19,7 +19,7 @@ class Homepage extends Component {
 
   render() {
 
-    document.title = getDocTitle('Home');
+    document.title = 'Carbon Collective'
 
     return (
       <main>

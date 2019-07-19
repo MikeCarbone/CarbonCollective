@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazyload';
 import { getDate } from '../generic/commonFunctions';
 
 class Item extends Component {
@@ -7,7 +8,9 @@ class Item extends Component {
       return(
         <div key={index} className="post">
           <div className="post__img-cont">
-            <img alt="" className="post__img" src={post.imageUrl}/>
+            <LazyLoad>
+              <img alt="" className="post__img" src={post.imageUrl}/>
+            </LazyLoad>
           </div>
           <div className="post__content-cont">
             <h2 className="post__title">{post.title}</h2>
