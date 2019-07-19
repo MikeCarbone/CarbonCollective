@@ -115,7 +115,7 @@ class NewPost extends Component {
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
               <label className="create__label" htmlFor="tags">Separate tags with a comma, e.g. "  logo,productivity,business  "</label>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="HOT TAKE: What do you like about this?"></input>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="Justification: Why would you want to visit this link again?"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="SOURCE: Where did you find this? (Word / Name)"></input>
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
               <input className="generic__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>

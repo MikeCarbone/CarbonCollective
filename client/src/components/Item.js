@@ -21,7 +21,7 @@ class Item extends Component {
               </div>
               <div>
                 <a className="generic__link post__in-link" href={`/cc/${post.slug}`}>Details</a>
-                <a className="generic__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
+                <a className="generic__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`Go to ${post.title}`}>GO</a>
               </div>
             </div>
           </div>
