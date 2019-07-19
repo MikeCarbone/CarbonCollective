@@ -8,7 +8,7 @@ class Item extends Component {
       return(
         <div key={index} className="post">
           <div className="post__img-cont">
-            <LazyLoad>
+            <LazyLoad height={150} offset={100}>
               <img alt="" className="post__img" src={post.imageUrl}/>
             </LazyLoad>
           </div>

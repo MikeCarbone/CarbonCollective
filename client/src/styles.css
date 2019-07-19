@@ -147,11 +147,13 @@
 }
 
 .post__img {
+  animation: fadeIn .13s ease-in-out forwards;
   background-color: black;
   border: 1px solid var(--faded-gold);
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
   width: 150px;
 }
 
@@ -225,6 +227,11 @@
 @keyframes moveToast {
   from{top: 0;}
   to{top: -30%}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 .toast {
@@ -354,6 +361,7 @@
 }
 
 .full-post__img {
+
   background-color: black;
   border-top: 1px solid var(--faded-gold);
   height: 100%;

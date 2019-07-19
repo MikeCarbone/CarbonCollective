@@ -58,15 +58,9 @@ class SearchBox extends Component{
       this.searchResults.style.display = 'none';
     }
   }
-
-  checkClickForInputFocus = () => {
-  }
   
   componentDidMount = () => {
     this.searchResults = document.getElementsByClassName('searchbar__results')[0];
-    // document.getElementsByTagName('main')[0].addEventListener('click', () => {
-    //   this.toggleResults({ forceClose: true })
-    // });
   }
 
   render () {
@@ -84,7 +78,7 @@ class SearchBox extends Component{
     return (
       <div id="SearchBox" className="searchbar">
         <div className="searchbar__container">
-          <input autoCapitalize="none" autoComplete="off" onFocus={() => this.toggleResults({forceOpen: true})} onChange={this.handleChange} className="searchbar__input" id="searchright" type="search" name="q" placeholder="Yes Captain?" />
+          <input autoCapitalize="none" autoComplete="off" onFocus={() => this.toggleResults({forceOpen: true})} onChange={this.handleChange} className="searchbar__input" id="searchright" type="search" name="q" placeholder="Yes, Captain?" />
           <label className="searchbar__icon" htmlFor="searchright"><span className="searchbar__mglass">&#9906;</span></label>
         </div>
         <div className="searchbar__results">
