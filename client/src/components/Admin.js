@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NewPost from './NewPost';
 import Toast from './Toast';
-import { getDocTitle } from '../generic/overallConfig';
+import { getDocTitle, setMetas } from '../generic/overallConfig';
 import { LogOut } from './Auth';
 class Admin extends Component {
   state= {
@@ -27,6 +27,7 @@ class Admin extends Component {
 
   render() {
     document.title = getDocTitle('Admin');
+    setMetas({isDefault: true});
 
     return (
       <>

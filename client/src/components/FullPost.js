@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getDate } from '../generic/commonFunctions';
-import { getDocTitle } from '../generic/overallConfig';
+import { getDocTitle, setMetas } from '../generic/overallConfig';
 
 const Tags = props => {
   if (props.tagArr) {
@@ -58,7 +58,7 @@ class FullPost extends Component {
       const post = this.state.posts;
 
       document.title = getDocTitle(post.title);
-
+      setMetas({title: post.title, imageUrl: post.imageUrl, slug: post.slug});
       return (
         <main className="generic__standard-wrapper full-post">
           <div className="full-post__top">

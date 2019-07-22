@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Item from './Item';
-import { getDocTitle } from '../generic/overallConfig'
+import { setMetas } from '../generic/overallConfig'
 
 class Homepage extends Component {
   state = {
@@ -20,7 +20,7 @@ class Homepage extends Component {
   render() {
 
     document.title = 'Carbon Collective'
-
+    setMetas({isHome: true})
     return (
       <main>
         <section className="posts-cont">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getDocTitle } from '../generic/overallConfig'
+import { getDocTitle, setMetas } from '../generic/overallConfig'
 import { Redirect, withRouter } from 'react-router-dom';
 import Toast from './Toast';
 
@@ -101,6 +101,7 @@ class LogIn extends React.Component {
     }
 
     document.title = getDocTitle('Log in');
+    setMetas({isDefault: true});
 
     return (
       <>
