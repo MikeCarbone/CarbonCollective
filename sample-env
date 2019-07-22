@@ -5,3 +5,7 @@ ADMIN_PASS=
 gCLOUD_KEY_ID=
 gCLOUD_KEY=
 gCLOUD_CLIENT_ID=
+TWITTER_consumer_key=
+TWITTER_consumer_secret=
+TWITTER_access_token_key=
+TWITTER_access_token_secret=

@@ -8,6 +8,8 @@ const keys = require('../keys');
 const Link = require('../models/Link');
 const slugify = require('slugify');
 
+const sendTweet = require('../services/TweetService');
+
 // Fetch All
 router.get('/', (req, res) => {
   Link.find().sort({dateAdded: -1}).limit(25).then(links => {
@@ -23,7 +25,7 @@ router.post('/', verify, (req, res) => {
     }
   });
 
-  const { title, url, tags, description, opinion, source, related, isPrivate } = req.body;
+  const { title, url, tags, description, opinion, source, related, isPrivate, tweetText } = req.body;
   const slug = slugify(title.toLowerCase());
   const splitTags = () => {
     return tags.split(',');
@@ -43,6 +45,10 @@ router.post('/', verify, (req, res) => {
         imageUrl,
         isPrivate
       }).then(data => {
+        if ((tweetText !== '') && (tweetText !== undefined) && (tweetText !== 'undefined')){
+          sendTweet(tweetText, slug);
+        }
+
         return res.status(200).send({
           "success": data
         });

@@ -120,6 +120,7 @@ class NewPost extends Component {
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
               <input className="generic__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>
               <label className="create__label create__label--viz" htmlFor="isPrivate">Is private?</label>
+              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tweetText" placeholder="New tweet? Leave blank for no tweet"></input>
               <button className="generic__btn create__btn" onClick={this.sendNew}>Submit</button>
             </div>
           </div>
