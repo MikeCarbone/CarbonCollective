@@ -1,6 +1,7 @@
 const specs = {
   title: "Carbon Collective",
-  creator: "Mike Carbone"
+  creator: "Mike Carbone",
+  baseUrl: "https://www.carboncollective.cc"
 }
 
 export function getDocTitle(str) {
@@ -13,16 +14,16 @@ export function setMetas(params){
   if (params.isHome === true){
     params.slug = "";
     params.title = "HOME | ";
-    params.imageUrl = "/apple-touch-icon.png"
+    params.imageUrl = `${specs.baseUrl}/apple-touch-icon.png`
   } else if (params.isDefault === true){
     params.slug = "";
     params.title = "";
-    params.imageUrl = "/apple-touch-icon.png"
+    params.imageUrl = `${specs.baseUrl}/apple-touch-icon.png`
   } else {
     params.slug = `cc/${params.slug}`;
     params.title = `${params.title.toUpperCase()} | `;
     if (!params.imageUrl){
-      params.imageUrl = "/apple-touch-icon.png"
+      params.imageUrl = `${specs.baseUrl}/apple-touch-icon.png`
     }
   }
 
@@ -36,7 +37,7 @@ export function setMetas(params){
           break;
         
         case 'url':
-          el.setAttribute('content', `https://www.carboncollective.cc/${params.slug}`);
+          el.setAttribute('content', `${specs.baseUrl}/${params.slug}`);
           break;
 
         case 'img':
