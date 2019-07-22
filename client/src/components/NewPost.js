@@ -32,9 +32,7 @@ class NewPost extends Component {
     })();
   }
 
-  sendNew = (event) => {
-    event.preventDefault();
-
+  getFormData () {
     const fileInput = document.getElementById('image');
     const file = fileInput.files[0];
     const formData = new FormData();
@@ -43,10 +41,18 @@ class NewPost extends Component {
     Object.keys(this.state.data).forEach(val => {
       formData.set(val, this.state.data[val]);
     });
-   
+
+    return formData;
+  }
+
+  sendNew = (event) => {
+    event.preventDefault();
+
     (async () => {
       try {
         await this.validate();
+        const formData = this.getFormData();
+
         fetch('/api/links', {
             method: 'POST',
             headers: {
@@ -59,11 +65,11 @@ class NewPost extends Component {
         .then(res => {
           this.props.resHandler({ res });
         })
-        .catch(err => this.props.resHandler({ err }));
+        .catch(err => this.props.resHandler({ "err": err }));
       } catch (err) {
         alert(err);
       }
-    })();
+    })();      
   }
 
   validate = () => {
@@ -90,6 +96,12 @@ class NewPost extends Component {
 
       if (this.state.data.description === null) {
         return reject('Please enter a short description!');
+      }
+
+      const fileInput = document.getElementById('image');
+      const file = fileInput.files[0];
+      if (!file){
+        return reject('Please select an image to upload!');
       }
 
       resolve();
@@ -120,7 +132,7 @@ class NewPost extends Component {
               <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
               <input className="generic__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>
               <label className="create__label create__label--viz" htmlFor="isPrivate">Is private?</label>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tweetText" placeholder="New tweet? Leave blank for no tweet"></input>
+              <input autoCapitalize="none" className="generic__input create__input" onChange={this.handleChange} type="text" id="tweetText" placeholder="New tweet? 'none' for no tweet"></input>
               <button className="generic__btn create__btn" onClick={this.sendNew}>Submit</button>
             </div>
           </div>

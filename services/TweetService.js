@@ -8,9 +8,16 @@ var client = new Twitter({
   access_token_secret: keys.TWITTER_access_token_secret
 });
 
-async function sendTweet(status, slug){
+async function sendTweet(status, slug, title, description){
+  var tweet = '';
+  if ((status !== '') && (status !== undefined) && (status !== 'undefined')){
+    tweet = `${status} \n\nhttps://www.carboncollective.cc/cc/${slug}`;
+  } else {
+    tweet = `New addition to the Collective: ${title.toUpperCase()}.\n\n${description} https://www.carboncollective.cc/cc/${slug}`;
+  }
+
   client.post('statuses/update', {
-    "status": `${status} \n\nhttps://www.carboncollective.cc/cc/${slug}`
+    "status": tweet
   }).then(data => {
     return data;
   }).catch(err => {

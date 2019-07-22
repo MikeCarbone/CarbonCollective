@@ -45,8 +45,9 @@ router.post('/', verify, (req, res) => {
         imageUrl,
         isPrivate
       }).then(data => {
-        if ((tweetText !== '') && (tweetText !== undefined) && (tweetText !== 'undefined')){
-          sendTweet(tweetText, slug);
+
+        if (tweetText !== 'none'){
+          sendTweet(tweetText, slug, title, description);
         }
 
         return res.status(200).send({

@@ -16,7 +16,9 @@ class Admin extends Component {
   }
 
   handleRes = (res) => {
-    if (res.err) {
+    console.log(res);
+    console.log(res.res);
+    if ((res.err) || (res.error) || (res.res.error) || (res.res.err)) {
       this.spawnToast(true);
     } else {
       this.spawnToast(false);
