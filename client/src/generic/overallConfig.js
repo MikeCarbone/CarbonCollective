@@ -12,7 +12,7 @@ export function setMetas(params){
 
   if (params.isHome === true){
     params.slug = "";
-    params.title = "HOME |";
+    params.title = "HOME | ";
     params.imageUrl = "/apple-touch-icon.png"
   } else if (params.isDefault === true){
     params.slug = "";
@@ -20,7 +20,7 @@ export function setMetas(params){
     params.imageUrl = "/apple-touch-icon.png"
   } else {
     params.slug = `cc/${params.slug}`;
-    params.title = `${params.title.toUpperCase()} |`;
+    params.title = `${params.title.toUpperCase()} | `;
     if (!params.imageUrl){
       params.imageUrl = "/apple-touch-icon.png"
     }

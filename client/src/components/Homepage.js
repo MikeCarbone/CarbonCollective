@@ -20,7 +20,7 @@ class Homepage extends Component {
   render() {
 
     document.title = 'Carbon Collective'
-    setMetas({isHome: true})
+    setMetas({isDefault: true})
     return (
       <main>
         <section className="posts-cont">
