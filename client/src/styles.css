@@ -7,7 +7,7 @@
 
 :root {
   --font: 'Noto Sans HK', sans-serif;
-  --fontDecorative: 'Staatliches', cursive;
+  --fontDecorative: 'Staatliches', sans-serif;
   --faded-yellow: #fff9df;
   --faded: #AFAFAF;
   --light: #E3E3E3;
@@ -101,6 +101,8 @@
 
 .posts-cont {
   padding: 0 50px 50px 50px;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .post {
