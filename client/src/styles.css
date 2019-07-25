@@ -573,11 +573,16 @@
   }
 
   .nav__link {
-    margin: 0 30px;
+    margin: 0 15px;
   }
 
   .nav__link:hover {
-    all: unset;
+    background-color: var(--white);
+    box-shadow: none;
+  }
+
+  .searchbar {
+    margin: 6px 0 0 0;
   }
 
   .searchbar__container {
