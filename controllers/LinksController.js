@@ -47,7 +47,7 @@ router.post('/', verify, (req, res) => {
       }).then(data => {
 
         if (tweetText !== 'none'){
-          sendTweet(tweetText, slug, title, description);
+          sendTweet(tweetText, slug, title, description, req.files);
         }
 
         return res.status(200).send({
