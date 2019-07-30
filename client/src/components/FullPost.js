@@ -59,6 +59,11 @@ class FullPost extends Component {
 
       document.title = getDocTitle(post.title);
       setMetas({title: post.title, imageUrl: post.imageUrl, slug: post.slug});
+
+      const source = (post.source.toLowerCase() !== 'unknown')
+        ? (<a className="generic__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>)
+        : null;
+
       return (
         <main className="generic__standard-wrapper full-post">
           <div className="full-post__top">
@@ -70,7 +75,7 @@ class FullPost extends Component {
               <div className="full-post__links">
                 <div className="full-post__outlinks">
                   <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW CONTENT</a>
-                  <a className="generic__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>
+                  {source}
                 </div>
                 <Tags tagArr={post.tags} />
               </div>
