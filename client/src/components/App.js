@@ -4,6 +4,7 @@ import Admin from './Admin';
 import Header from './Header'
 import Homepage from './Homepage'
 import FullPost from './FullPost';
+import BlogPost from './BlogPost';
 import Authorize, { LogIn } from './Auth';
 
 const App = () => (
@@ -12,6 +13,7 @@ const App = () => (
 
     <Switch>
       <Route path="/" exact component={Homepage}/>
+      <Route path="/blog" component={BlogPost}/>
       <Route path="/cc/:name" component={FullPost} />
       <Route path="/login" component={LogIn}/>
       <PrivateRoute path="/admin" component={Admin} />

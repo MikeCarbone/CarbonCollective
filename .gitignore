@@ -4,3 +4,7 @@ keys.json
 /private
 package-lock.json
 .env
+.DS_Store
+do_not_commit.svg
+client/public/.DS_Store
+.vscode/
