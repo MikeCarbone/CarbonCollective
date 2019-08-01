@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Admin from './Admin';
 import Header from './Header'
+import Footer from './Footer';
 import Homepage from './Homepage'
 import FullPost from './FullPost';
 import Authorize, { LogIn } from './Auth';
@@ -16,6 +17,8 @@ const App = () => (
       <Route path="/login" component={LogIn}/>
       <PrivateRoute path="/admin" component={Admin} />
     </Switch>
+
+    <Footer />
   </>
 );
 

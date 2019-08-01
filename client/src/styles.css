@@ -12,6 +12,7 @@
   --faded: #AFAFAF;
   --light: #E3E3E3;
   --dark: #3D3D3D;
+  --white: #FFFFFF;
   --copy: #3e3e3e;
   --black: #000;
   --gold: #f7c500;
@@ -22,8 +23,18 @@
   --small: .8rem;
 }
 
+main {
+  min-height: 95vh;
+}
+
 .generic__standard-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
   padding: 50px 120px;
+}
+
+.generic__standard-wrapper--vert {
+  padding: 50px 0;
 }
 
 .generic__invisible-link {
@@ -97,6 +108,10 @@
 .generic__text-link:hover {
   background-color: var(--gold);
   transition: all .2s ease-out;
+}
+
+.generic__emoji {
+  margin-right: -4px;
 }
 
 .posts-cont {
@@ -549,6 +564,47 @@
 	padding: 0 0 0 16px;
 }
 
+.footer {
+  background-color: var(--black);
+  font-family: var(--font);
+}
+
+.footer__copywrite {
+  color: var(--white);
+  font-size: var(--small);
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.footer__love {
+  color: var(--white);
+  font-size: var(--small);
+  font-weight: lighter;
+  margin: 25px 0 0 0;
+  text-transform: uppercase;
+  text-align: center;
+  word-spacing: 2px;
+}
+
+.footer__love-link {
+  color: var(--white);
+  font-weight: lighter;
+  padding: 2px 0;
+}
+
+.footer__love-link:hover {
+  color: var(--black);
+}
+
+.footer__socials {
+  background-color: #151515;
+  color: var(--white);
+  font-size: var(--small);
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 800px) {
   :root {
     --extra-big: 1.9rem;
@@ -689,5 +745,9 @@
 
   .login__text {
     margin-top: 50px;
+  }
+
+  .footer__copy {
+    padding: 50px 20px;
   }
 }
