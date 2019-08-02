@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getDate } from '../generic/commonFunctions';
 import { getDocTitle, setMetas } from '../generic/overallConfig';
+import Placeholder from './Placeholder';
 
 const Tags = props => {
   if (props.tagArr) {
@@ -95,7 +96,7 @@ class FullPost extends Component {
         </main>
       );
     } else {
-      return null;
+      return <Placeholder />;
     }
   }
 }

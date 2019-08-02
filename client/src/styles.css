@@ -114,6 +114,11 @@ main {
   margin-right: -4px;
 }
 
+.placeholder {
+  height: 90vh;
+  width: 100%;
+}
+
 .posts-cont {
   padding: 0 50px 50px 50px;
   margin: 0 auto;
@@ -289,6 +294,7 @@ main {
 }
 
 .full-post {
+  animation: fadeIn 1s forwards;
   display: flex;
   flex-direction: column;
   max-width: 1500px;
