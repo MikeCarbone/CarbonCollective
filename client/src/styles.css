@@ -573,10 +573,11 @@ main {
 .footer {
   background-color: var(--black);
   font-family: var(--font);
+  margin-top: 100px;
 }
 
 .footer__copywrite {
-  color: var(--white);
+  color: var(--faded);
   font-size: var(--small);
   font-weight: lighter;
   text-transform: uppercase;
@@ -587,7 +588,6 @@ main {
   color: var(--white);
   font-size: var(--small);
   font-weight: lighter;
-  margin: 25px 0 0 0;
   text-transform: uppercase;
   text-align: center;
   word-spacing: 2px;
@@ -609,6 +609,11 @@ main {
   font-size: var(--small);
   font-weight: lighter;
   text-transform: uppercase;
+}
+
+.footer__wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 800px) {
@@ -755,5 +760,13 @@ main {
 
   .footer__copy {
     padding: 50px 20px;
+  }
+
+  .footer__wrapper {
+    flex-direction: column;
+  }
+
+  .footer__love {
+    margin-top: 25px;
   }
 }
