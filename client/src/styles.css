@@ -394,7 +394,7 @@ main {
 
 .full-post__take {
   margin: 50px 0 15px 0;
-  max-width: 500px;
+  max-width: 800px;
 }
 
 .full-post__take-header {
@@ -408,7 +408,7 @@ main {
 .full-post__take-text {
   color: var(--copy);
   font-family: var(--font);
-  line-height: 1.5;
+  line-height: 1.7;
   margin: 15px 0 0 20px;
 }
 
