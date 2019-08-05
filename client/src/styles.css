@@ -585,7 +585,7 @@ main {
 }
 
 .footer__love {
-  color: var(--white);
+  color: var(--faded);
   font-size: var(--small);
   font-weight: lighter;
   text-transform: uppercase;
