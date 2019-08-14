@@ -4,3 +4,5 @@ keys.json
 /private
 package-lock.json
 .env
+.vscode/
+client/public/do_not_commit.svg

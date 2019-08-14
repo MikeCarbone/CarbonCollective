@@ -11,7 +11,7 @@ const Footer = () => (
       <div className="footer__wrapper generic__standard-wrapper generic__standard-wrapper--vert">
         <p className="footer__copywrite">© {new Date().getFullYear()} Carbon Collective&trade;</p>
         <p className="footer__love">
-          Built with <span className="generic__emoji">❤️</span> by <a className="footer__love-link generic__text-link" href="https://twitter.com/carbnology" target="_blank" rel="noopener noreferrer">Mike Carbone</a>
+          Built with <span role="img" className="generic__emoji" aria-label="love">❤️</span> by <a className="footer__love-link generic__text-link" href="https://twitter.com/carbnology" target="_blank" rel="noopener noreferrer">Mike Carbone</a>
         </p>
       </div>
     </div>

@@ -63,6 +63,7 @@ mongoose
 
 app.get('/', express.static(path.join(__dirname, 'client/public')));
 app.use('/api/links', require('./controllers/LinksController'));
+app.use('/api/quicksaves', require('./controllers/QuicksaveController'));
 
 
 
