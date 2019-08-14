@@ -5,6 +5,8 @@ import Header from './Header'
 import Footer from './Footer';
 import Homepage from './Homepage'
 import FullPost from './FullPost';
+import Quicksaver from './Quicksaver';
+import QuicksaveList from './QuicksaveList';
 import Authorize, { LogIn } from './Auth';
 
 const App = () => (
@@ -14,7 +16,10 @@ const App = () => (
     <Switch>
       <Route path="/" exact component={Homepage}/>
       <Route path="/cc/:name" component={FullPost} />
-      <Route path="/login" component={LogIn}/>
+      <Route path="/save/:link" component={Quicksaver} />
+      <Route path="/save/" component={Quicksaver} />
+      <Route path="/saves" component={QuicksaveList} />
+      <Route path="/login" component={LogIn} />
       <PrivateRoute path="/admin" component={Admin} />
     </Switch>
 
@@ -62,4 +67,3 @@ class PrivateRoute extends Component {
     );
   }
 }
-

@@ -8,6 +8,10 @@ export function getDocTitle(str) {
   return `${str.toUpperCase()} | ${specs.title}`
 }
 
+export function setDocTitle(str) {
+  return document.title = getDocTitle(str)
+}
+
 export function setMetas(params){
   const dynamicMetas = document.querySelectorAll('[data-js-meta]');
 
