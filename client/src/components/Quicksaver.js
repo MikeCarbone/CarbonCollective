@@ -86,7 +86,7 @@ class Quicksaver extends Component {
       return (
         <main className={`generic__standard-wrapper quicksaver`}>
           <h2 className={`quicksaver__header`}>{text}</h2>
-          <p className="quicksaver__url generic__text-link">{url}</p>
+          <a href={url} className="quicksaver__url generic__text-link">{url}</a>
           <Link to="/saves" className="generic__btn quicksaver__btn">View all quicksaves</Link>
         </main>
       );
