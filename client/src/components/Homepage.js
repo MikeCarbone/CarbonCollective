@@ -106,7 +106,7 @@ class Homepage extends Component {
 
     const loadingAnimation = (this.state.isFetching)
       ? <img className="loading" src="images/pacman-load.svg" alt="Loading"></img>
-      : <img></img>;
+      : <img className="loading loading--hidden" src="images/pacman-load.svg" alt=""></img>
 
     return (
       <main>
