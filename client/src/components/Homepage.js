@@ -58,6 +58,10 @@ class Homepage extends Component {
                 pagesLoaded: pageToLoad,
                 isFetching: false
               });
+
+              if (data.length < 25) {
+                this.setState({ allPostsLoaded: true });
+              }
             })();
           }
         });
