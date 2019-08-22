@@ -12,7 +12,7 @@ class Homepage extends Component {
   }
 
   componentWillMount () {
-    fetch('/api/links')
+    fetch('/api/links/all')
       .then(res => {
         return res.json();
       })
@@ -31,7 +31,7 @@ class Homepage extends Component {
 
         this.setState({ isFetching: true });
 
-        fetch(`/api/links/${pageToLoad}`)
+        fetch(`/api/links/all/${pageToLoad}`)
         .then(res => {
           return res.json();
         })
