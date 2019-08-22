@@ -225,6 +225,7 @@ main {
 .nav {
   align-items: center;
   display: flex;
+  flex-direction: var(--resp-flex-direction);
   font-family: var(--font);
   justify-content: space-between;
   padding: 20px;
@@ -763,7 +764,7 @@ main {
   }
 
   .nav__link {
-    margin: 0 15px;
+    margin: 0px;
   }
 
   .nav__link:hover {
@@ -772,7 +773,7 @@ main {
   }
 
   .searchbar {
-    margin: 6px 0 0 0;
+    margin: 6px -13px 0 0;
   }
 
   .searchbar__container {
