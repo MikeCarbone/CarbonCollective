@@ -97,13 +97,13 @@ class Homepage extends Component {
       (async () => {
         await this.setPageHeight();
         window.addEventListener('scroll', () => { this.paginate() });
+
+        document.title = 'Carbon Collective'
+        setMetas({ isDefault: true });
       })();
   }
 
   render() {
-    document.title = 'Carbon Collective'
-    setMetas({ isDefault: true });
-
     const allPostsLoadedText = (this.state.allPostsLoaded)
       ? <p className="generic__p thats-all">That's all for now! <span aria-label="" role="img" className="generic__emoji">😎</span></p>
       : <p className="generic__p generic__hidden thats-all">That's all for now! <span aria-label="" role="img" className="generic__emoji">😎</span></p>;

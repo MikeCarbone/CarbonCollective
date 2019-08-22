@@ -25,10 +25,12 @@ class Admin extends Component {
     }
   }
 
-  render() {
+  componentDidMount () {
     document.title = getDocTitle('Admin');
     setMetas({isDefault: true});
+  }
 
+  render() {
     return (
       <>
         {this.state.toast}
