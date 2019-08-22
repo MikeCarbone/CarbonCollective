@@ -23,7 +23,7 @@ class Editor extends Component {
           <p className="post__desc">{post.description}</p>
           <div className="post__btm">
             <p className="post__date">Added on: {post.dateAdded}</p>
-            <a className="generic__link post__link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
+            <a className="cc__link post__link" href={post.url} target="_blank" rel="noopener noreferrer">GO</a>
           </div>
         </div>
       );

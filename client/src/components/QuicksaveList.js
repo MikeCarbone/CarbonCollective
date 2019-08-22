@@ -30,7 +30,7 @@ class QuicksaveList extends Component {
     ? this.state.links.data.map((link, index) => {
       return (
         <div key={index} className="quicklink">
-          <a className="generic__text-link quicklink__link" href={link.url} target="_blank" rel="noopener noreferrer">{link.url}</a>
+          <a className="cc__text-link quicklink__link" href={link.url} target="_blank" rel="noopener noreferrer">{link.url}</a>
           <p className="quicklink__date">{getDate(link.dateAdded)}</p>
         </div>
       );
@@ -39,7 +39,7 @@ class QuicksaveList extends Component {
 
     return (
       <main>
-        <section className="generic__standard-wrapper quicklink-cont">
+        <section className="cc__standard-wrapper quicklink-cont">
         <h1 className="quicklink__header">Quick Saved Links</h1>
           {links}
         </section>

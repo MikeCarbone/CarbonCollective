@@ -105,12 +105,12 @@ class Homepage extends Component {
 
   render() {
     const allPostsLoadedText = (this.state.allPostsLoaded)
-      ? <p className="generic__p thats-all">That's all for now! <span aria-label="" role="img" className="generic__emoji">😎</span></p>
-      : <p className="generic__p generic__hidden thats-all">That's all for now! <span aria-label="" role="img" className="generic__emoji">😎</span></p>;
+      ? <p className="cc__p thats-all">That's all for now! <span aria-label="" role="img" className="cc__emoji">😎</span></p>
+      : <p className="cc__p cc__hidden thats-all">That's all for now! <span aria-label="" role="img" className="cc__emoji">😎</span></p>;
 
     const loadingAnimation = (this.state.isFetching)
       ? <img className="loading" src="images/pacman-load.svg" alt="Loading"></img>
-      : <img className="loading generic__hidden" src="images/pacman-load.svg" alt=""></img>
+      : <img className="loading cc__hidden" src="images/pacman-load.svg" alt=""></img>
 
     return (
       <main>

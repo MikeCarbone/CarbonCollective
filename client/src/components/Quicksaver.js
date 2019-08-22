@@ -84,10 +84,10 @@ class Quicksaver extends Component {
       const url = (this.state.url) ? this.state.url : "";
 
       return (
-        <main className={`generic__standard-wrapper quicksaver`}>
+        <main className={`cc__standard-wrapper quicksaver`}>
           <h2 className={`quicksaver__header`}>{text}</h2>
-          <a href={url} className="quicksaver__url generic__text-link">{url}</a>
-          <Link to="/saves" className="generic__btn quicksaver__btn">View all quicksaves</Link>
+          <a href={url} className="quicksaver__url cc__text-link">{url}</a>
+          <Link to="/saves" className="cc__btn quicksaver__btn">View all quicksaves</Link>
         </main>
       );
   }

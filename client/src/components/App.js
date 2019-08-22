@@ -7,6 +7,7 @@ import Homepage from './Homepage'
 import FullPost from './FullPost';
 import Quicksaver from './Quicksaver';
 import QuicksaveList from './QuicksaveList';
+import About from './About';
 import Authorize, { LogIn } from './Auth';
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
       <Route path="/save/:link" component={Quicksaver} />
       <Route path="/save/" component={Quicksaver} />
       <Route path="/saves" component={QuicksaveList} />
+      <Route path="/about" component={About} />
       <Route path="/login" component={LogIn} />
       <PrivateRoute path="/admin" component={Admin} />
     </Switch>

@@ -116,24 +116,24 @@ class NewPost extends Component {
     return(
       <>
         <form>
-          <div className="generic__standard-wrapper">
-            <h1 className="generic__section-header">New Post</h1>
-            <div className="generic__hr"></div>
+          <div className="cc__standard-wrapper">
+            <h1 className="cc__section-header">New Post</h1>
+            <div className="cc__hr"></div>
             <div className="create">
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="file" name="file" id="image" accept="image/*" placeholder="Image"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} hidden type="text" name="imageUrl" id="imageUrl"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="title" placeholder="Title"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="url" placeholder="URL"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="file" name="file" id="image" accept="image/*" placeholder="Image"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} hidden type="text" name="imageUrl" id="imageUrl"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="tags" placeholder="Tags"></input>
               <label className="create__label" htmlFor="tags">Separate tags with a comma, e.g. "  logo,productivity,business  "</label>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="Justification: Why would you want to visit this link again?"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="SOURCE: Where did you find this? (Word / Name)"></input>
-              <input className="generic__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
-              <input className="generic__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="description" placeholder="Description"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="opinion" placeholder="Justification: Why would you want to visit this link again?"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="source" placeholder="SOURCE: Where did you find this? (Word / Name)"></input>
+              <input className="cc__input create__input" onChange={this.handleChange} type="text" id="related" placeholder="Link to original find? e.g. Twitter thread, Reddit post, etc."></input>
+              <input className="cc__input" type="checkbox" onChange={this.handleChange} id="isPrivate"></input>
               <label className="create__label create__label--viz" htmlFor="isPrivate">Is private?</label>
-              <input autoCapitalize="none" className="generic__input create__input" onChange={this.handleChange} type="text" id="tweetText" placeholder="New tweet? 'none' for no tweet"></input>
-              <button className="generic__btn create__btn" onClick={this.sendNew}>Submit</button>
+              <input autoCapitalize="none" className="cc__input create__input" onChange={this.handleChange} type="text" id="tweetText" placeholder="New tweet? 'none' for no tweet"></input>
+              <button className="cc__btn create__btn" onClick={this.sendNew}>Submit</button>
             </div>
           </div>
         </form>

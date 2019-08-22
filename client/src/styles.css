@@ -21,38 +21,39 @@
   --big: 1.7rem;
   --med: 1.1rem;
   --small: .8rem;
+  --resp-flex-direction: row;
 }
 
 main {
   min-height: 95vh;
 }
 
-.generic__standard-wrapper {
+.cc__standard-wrapper {
   margin: 0 auto;
   max-width: 1200px;
   padding: 20px 120px;
 }
 
-.generic__standard-wrapper--vert {
+.cc__standard-wrapper--vert {
   padding: 20px 0;
 }
 
-.generic__invisible-link {
+.cc__invisible-link {
   text-decoration: none;
 }
 
-.generic__section-header {
+.cc__section-header {
   font-family: var(--font);
 }
 
-.generic__input {
+.cc__input {
   border: 1px solid black;
   font-size: var(--med);
   margin: 15px 0;
   padding: 15px;
 }
 
-.generic__btn {
+.cc__btn {
   background-color: var(--gold);
   cursor: pointer;
   font-family: var(--font);
@@ -62,12 +63,12 @@ main {
   transition: .1s all ease-in;
 }
 
-.generic__btn:hover {
+.cc__btn:hover {
   background-color: var(--faded-gold);
   transition: .1s all ease-in;
 }
 
-.generic__link {
+.cc__link {
   background-color: var(--gold);
   color: var(--black);
   font-family: var(--font);
@@ -82,19 +83,19 @@ main {
   min-width: 100px;
 }
 
-.generic__link:hover {
+.cc__link:hover {
   background-color: var(--faded-gold);
   transition: .1s all ease-in;
 }
 
-.generic__hr {
+.cc__hr {
   background-color: var(--gold);
   height: 1px;
   margin: 10px 0;
   width: 100%;
 }
 
-.generic__text-link {
+.cc__text-link {
   border-bottom: 2px solid var(--gold);
   color: var(--black);
   cursor: pointer;
@@ -105,22 +106,28 @@ main {
   transition: all .2s ease-out;
 }
 
-.generic__text-link:hover {
+.cc__text-link:hover {
   background-color: var(--gold);
   transition: all .2s ease-out;
 }
 
-.generic__emoji {
+.cc__emoji {
   margin-right: -4px;
 }
 
-.generic__p {
+.cc__p {
   font-family: var(--font);
   font-size: var(--copy);
   font-weight: normal;
 }
 
-.generic__hidden {
+.cc__h1 {
+  color: var(--black);
+  font-family: var(--font);
+  font-size: var(--extra-big);
+}
+
+.cc__hidden {
   visibility: hidden;
 }
 
@@ -140,6 +147,7 @@ main {
   animation: fadeIn .25s forwards;
   box-shadow: 0 1px 4px -4px black;
   display: flex;
+  flex-direction: var(--resp-flex-direction);
   font-family: var(--font);
   min-height: 150px;
   padding: 35px 15px;
@@ -173,6 +181,7 @@ main {
 .post__btm {
   align-items: center;
   display: flex;
+  flex-direction: var(--resp-flex-direction);
 }
 
 .post__img-cont {
@@ -337,6 +346,7 @@ main {
 .full-post__links {
   align-items: center;
   display: flex;
+  flex-direction: var(--resp-flex-direction);
   justify-content: space-between;
   margin: 50px 0 15px 0;
 }
@@ -623,6 +633,7 @@ main {
 
 .footer__wrapper {
   display: flex;
+  flex-direction: var(--resp-flex-direction);
   justify-content: space-between;
 }
 
@@ -688,6 +699,44 @@ main {
   width: 100px;
 }
 
+.text-template h1 {
+  display: inline-block;
+  border-bottom: 2px solid var(--gold);
+  padding: 0 100px 5px 0px;
+  margin: 50px 0;
+}
+
+.text-template p {
+  color: var(--black);
+  font-family: var(--font);
+  font-size: var(--copy);
+  line-height: 2;
+  margin: 35px 0;
+}
+
+.text-template h2 {
+  font-family: var(--font);
+  font-size: var(--big);
+  font-weight: normal;
+  margin: 25px 0;
+}
+
+.text-template li {
+  font-family: var(--font);
+  line-height: 2;
+  margin-left: 75px;
+}
+
+.text-template .tweet-container {
+  display: flex;
+  flex-direction: var(--resp-flex-direction);
+  justify-content: space-between;
+}
+
+.text-template .tweet-container .twitter-tweet {
+  margin: 10px;
+}
+
 @media screen and (max-width: 800px) {
   :root {
     --extra-big: 1.9rem;
@@ -695,14 +744,14 @@ main {
     --med: 1.05rem;
     --small: .9rem;
     --tiny: .7rem;
+    --resp-flex-direction: column;
   }
 
-  .generic__standard-wrapper {
+  .cc__standard-wrapper {
     padding: 10px 20px;
   }
 
   .nav {
-    flex-direction: column;
     padding: 10px;
   }
 
@@ -735,7 +784,6 @@ main {
   }
 
   .post {
-    flex-direction: column;
     padding: 25px 15px;
   }
   
@@ -770,10 +818,6 @@ main {
     margin: 15px 0;
   }
 
-  .post__btm {
-    flex-direction: column;
-  }
-
   .full-post__top {
     margin: 15px 0;
     flex-direction: column;
@@ -796,7 +840,6 @@ main {
 
   .full-post__links {
     align-items: unset;
-    flex-direction: column;
     margin: 30px 0 15px 0;
   }
 
@@ -834,11 +877,17 @@ main {
     padding: 50px 20px;
   }
 
-  .footer__wrapper {
-    flex-direction: column;
-  }
-
   .footer__love {
     margin-top: 25px;
+  }
+
+  .text-template .tweet-container .twitter-tweet {
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .text-template li {
+    margin: 25px 10px 0 35px;
   }
 }

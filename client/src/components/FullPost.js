@@ -62,11 +62,11 @@ class FullPost extends Component {
       setMetas({title: post.title, imageUrl: post.imageUrl, slug: post.slug});
 
       const source = (post.source.toLowerCase() !== 'unknown')
-        ? (<a className="generic__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>)
+        ? (<a className="cc__text-link full-post__source" href={post.related} target="_blank" rel="noreferrer noopener">View source</a>)
         : null;
 
       return (
-        <main className="generic__standard-wrapper full-post">
+        <main className="cc__standard-wrapper full-post">
           <div className="full-post__top">
             <div className="full-post__importants">
               <div className="full-post__header-zone">
@@ -75,7 +75,7 @@ class FullPost extends Component {
               <p className="full-post__desc">{post.description}</p>
               <div className="full-post__links">
                 <div className="full-post__outlinks">
-                  <a className="generic__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW CONTENT</a>
+                  <a className="cc__link full-post__link" href={post.url} target="_blank" rel="noreferrer noopener">VIEW CONTENT</a>
                   {source}
                 </div>
                 <Tags tagArr={post.tags} />
@@ -85,7 +85,7 @@ class FullPost extends Component {
               <img alt="" className="full-post__img" src={post.imageUrl}/>
             </div>
           </div>
-          <div className="generic__hr"></div>
+          <div className="cc__hr"></div>
           <div className="full-post__content">
             <p className="full-post__date">Added on {getDate(post.dateAdded)}</p>
             <div className="full-post__take">

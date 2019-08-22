@@ -20,8 +20,8 @@ class Item extends Component {
                 <p className="post__date">Added on: <br className="post__date-break" />{getDate(post.dateAdded)}</p>
               </div>
               <div>
-                <a className="generic__link post__in-link" href={`/cc/${post.slug}`}>Details</a>
-                <a className="generic__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`Go to ${post.title}`}>GO</a>
+                <a className="cc__link post__in-link" href={`/cc/${post.slug}`}>Details</a>
+                <a className="cc__link post__out-link" href={post.url} target="_blank" rel="noopener noreferrer" aria-label={`Go to ${post.title}`}>GO</a>
               </div>
             </div>
           </div>
