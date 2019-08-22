@@ -120,6 +120,10 @@ main {
   font-weight: normal;
 }
 
+.generic__hidden {
+  visibility: hidden;
+}
+
 .placeholder {
   height: 90vh;
   width: 100%;
@@ -682,10 +686,6 @@ main {
   display: block;
   margin: 0 auto;
   width: 100px;
-}
-
-.loading--hidden {
-  visibility: hidden;
 }
 
 @media screen and (max-width: 800px) {
