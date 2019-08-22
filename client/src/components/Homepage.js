@@ -39,8 +39,10 @@ class Homepage extends Component {
           if (data.length === 0) {
             console.log('All posts loaded!');
 
-            this.setState({ isFetching: false });
-            this.setState({ allPostsLoaded: true });
+            this.setState({
+              isFetching: false,
+              allPostsLoaded: true
+            });
           } else {
 
             // Adds new posts to state
@@ -51,10 +53,11 @@ class Homepage extends Component {
               await this.setPageHeight();
 
               // Update how many pages are loaded
-              await this.setState({ pagesLoaded: pageToLoad });
-
               // Allow new fetches again
-              this.setState({ isFetching: false });
+              this.setState({
+                pagesLoaded: pageToLoad,
+                isFetching: false
+              });
             })();
           }
         });
