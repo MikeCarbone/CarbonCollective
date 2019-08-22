@@ -7,7 +7,7 @@ class About extends Component {
     return (
       <>
         <main className="cc__standard-wrapper text-template">
-          <ReactPlayer url="images/welcome-glitch.webm" controls={false} loop={true} width="100%" height="100%" playing={true} autoplay={true} playbackRate={.35} />
+          <ReactPlayer url="images/welcome-glitch-compressed.webm" controls={false} loop={true} width="100%" height="100%" playing={true} autoplay={true} playbackRate={.35} />
           <div className="cc__hr"></div>
           <h2>Hey, welcome to Carbon Collective.</h2>
           <p>
