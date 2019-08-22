@@ -114,6 +114,12 @@ main {
   margin-right: -4px;
 }
 
+.generic__p {
+  font-family: var(--font);
+  font-size: var(--copy);
+  font-weight: normal;
+}
+
 .placeholder {
   height: 90vh;
   width: 100%;
@@ -664,6 +670,18 @@ main {
   margin: 0 0 25px 0;
   padding: 0 0 0 15px;
   text-transform: uppercase;
+}
+
+.thats-all {
+  font-weight: lighter;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.loading {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
 }
 
 @media screen and (max-width: 800px) {

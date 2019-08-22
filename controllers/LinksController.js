@@ -10,10 +10,33 @@ const slugify = require('slugify');
 
 const sendTweet = require('../services/TweetService');
 
+const LINK_RETURN_LIMIT = 25;
+
 // Fetch All
 router.get('/', (req, res) => {
-  Link.find().sort({dateAdded: -1}).limit(25).then(links => {
+  Link.find()
+    .sort({dateAdded: -1})
+    .limit(LINK_RETURN_LIMIT)
+  .then(links => {
     res.status(200).send(links);
+  }).catch(err => {
+    res.status(500).send(err);
+  });
+});
+
+// Pagination
+router.get('/:page', (req, res) => {
+  const num = parseInt(req.params.page);
+  const skip = (num * LINK_RETURN_LIMIT) - LINK_RETURN_LIMIT;
+
+  Link.find()
+    .skip(skip)
+    .sort({dateAdded: -1})
+    .limit(LINK_RETURN_LIMIT)
+  .then(links => {
+    res.status(200).send(links);
+  }).catch(err => {
+    res.status(500).send(err);
   });
 });
 
