@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-import ReactPlayer from 'react-player';
+import LazyLoad from 'react-lazyload';
+import { Link } from 'react-router-dom';
 
 class About extends Component {
   render() {
     return (
       <>
         <main className="cc__standard-wrapper text-template">
-          <ReactPlayer url={[
-              {src: 'images/welcome-glitch-compressed.webm', type: 'video/webm'},
-              {src: 'images/welcome-glitch-compressed.mp4', type: 'video/mp4'}
-            ]}
-            controls={false} loop={true} width="100%" height="100%" playing={true} autoplay={true} playbackRate={.35} />
+          <LazyLoad>
+            <img  srcSet=" images/welcome_banner_small.jpg 600w,
+                            images/welcome_banner.jpg 1200w"
+                  sizes="  (max-width: 767px) 400px,
+                            1200px"
+                  src="images/welcome_banner.jpg"
+                  alt="Welcome"
+                  className="text-template__img">
+            </img>
+          </LazyLoad>
           <div className="cc__hr"></div>
           <h2>Hey, welcome to Carbon Collective.</h2>
           <p>
@@ -45,7 +51,7 @@ class About extends Component {
             <TwitterTweetEmbed tweetId={'1154846822592143361'} />
           </div>
           <p>That's it for now! I plan on updating this as I continue development.</p>
-          <p>My name is Mike Carbone, and welcome to Carbon Collective.</p>
+          <Link to="/" className="cc__btn">View Collection</Link>
         </main>
       </>
     )

@@ -55,11 +55,13 @@ main {
 
 .cc__btn {
   background-color: var(--gold);
+  color: var(--black);
   cursor: pointer;
   font-family: var(--font);
   font-size: var(--med);
   padding: 15px;
   text-transform: uppercase;
+  text-decoration: none;
   transition: .1s all ease-in;
 }
 
@@ -737,6 +739,11 @@ main {
 
 .text-template .tweet-container .twitter-tweet {
   margin: 10px;
+}
+
+.text-template__img {
+  display: block;
+  width: 100%;
 }
 
 @media screen and (max-width: 800px) {
