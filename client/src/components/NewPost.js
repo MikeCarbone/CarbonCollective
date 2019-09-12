@@ -7,6 +7,16 @@ class NewPost extends Component {
       tags: [],
       description: null,
       isPrivate: false
+    },
+    preventLeaving: true
+  }
+
+  preventLeaving() {
+    const shouldLeave = (this.state.preventLeaving) ? this.state.preventLeaving : false;
+    if (shouldLeave) {
+      window.onbeforeunload = () => true;
+    } else {
+      window.onbeforeunload = undefined;
     }
   }
 
@@ -110,6 +120,10 @@ class NewPost extends Component {
 
   handleTags (str) {
     return str.split(", ");
+  }
+
+  componentDidMount () {
+    this.preventLeaving();
   }
 
   render () {
