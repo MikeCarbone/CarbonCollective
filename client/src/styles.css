@@ -923,11 +923,19 @@ main {
   }
 
   .footer__copy {
-    padding: 50px 20px;
+    padding: 25px 20px;
+  }
+
+  .footer__copywrite {
+    margin: 25px auto;
   }
 
   .footer__love {
     margin-top: 25px;
+  }
+
+  .footer__twitter {
+    margin: 25px auto;
   }
 
   .text-template .tweet-container .twitter-tweet {
