@@ -636,6 +636,7 @@ main {
 }
 
 .footer__wrapper {
+  align-items: center;
   display: flex;
   flex-direction: var(--resp-flex-direction);
   justify-content: space-between;
