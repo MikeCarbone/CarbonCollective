@@ -640,6 +640,7 @@ main {
   display: flex;
   flex-direction: var(--resp-flex-direction);
   justify-content: space-between;
+  padding: 40px 0;
 }
 
 .quicksaver {
