@@ -746,6 +746,46 @@ main {
   width: 100%;
 }
 
+.social-ask {
+  animation:  extendHeight .5s forwards ease-in-out,
+              fadeIn 1s forwards ease-in-out;
+  font-family: var(--font);
+  height: 0px;
+  margin: 0 auto;
+  max-width: 600px;
+  opacity: 0;
+  text-align: center;
+}
+
+.social-ask__header {
+  font-size: var(--extra-big);
+  margin: 0 auto 10px auto;
+}
+
+.social-ask__text {
+  font-size: var(--med);
+  font-weight: lighter;
+}
+
+.social-ask__btn {
+  display: block;
+  margin: 25px auto 5px auto;
+  padding: 10px;
+  width: 150px;
+}
+
+.social-ask__quiet {
+  background-color: var(--white);
+  color: var(--faded);
+  cursor: pointer;
+  font-weight: lighter;
+}
+
+@keyframes extendHeight {
+  from {height: 0px;}
+  to {height: 275px;}
+}
+
 @media screen and (max-width: 800px) {
   :root {
     --extra-big: 1.9rem;
