@@ -766,6 +766,7 @@ main {
 .social-ask__text {
   font-size: var(--med);
   font-weight: lighter;
+  margin: 25px auto;
 }
 
 .social-ask__btn {
@@ -777,14 +778,18 @@ main {
 
 .social-ask__quiet {
   background-color: var(--white);
-  color: var(--faded);
+  color: var(--light);
   cursor: pointer;
   font-weight: lighter;
 }
 
+.social-ask__quiet:hover {
+  border-bottom: 1px solid var(--light);
+}
+
 @keyframes extendHeight {
   from {height: 0px;}
-  to {height: 275px;}
+  to {height: 315px;}
 }
 
 @media screen and (max-width: 800px) {
