@@ -147,7 +147,7 @@ main {
 .post {
   align-content: space-between;
   animation: fadeIn .25s forwards;
-  box-shadow: 0 1px 4px -4px black;
+  border-bottom: 1px solid #ededed;
   display: flex;
   flex-direction: var(--resp-flex-direction);
   font-family: var(--font);
